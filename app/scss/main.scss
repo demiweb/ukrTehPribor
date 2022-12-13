@@ -208,8 +208,8 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
 }
 
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 0.2604vw;
+  height: 0.2604vw;
   background: #104E5A;
   border-radius: 3px;
 }
@@ -219,6 +219,21 @@ p, h1, ul, ol, h2, h3, h4, h5, h6 {
   border:none;
   box-sizing: border-box;
   border-radius: 3px;
+}
+@media screen and (max-width: 767px) {
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+    background: #104E5A;
+    border-radius: 3px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #08D7F9;
+    border:none;
+    box-sizing: border-box;
+    border-radius: 3px;
+  }
 }
 
 
