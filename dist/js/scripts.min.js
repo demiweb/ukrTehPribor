@@ -56,7 +56,6 @@ function allLozadImg() {
 allLozadImg();
 
 
-
 // var backdrop = document.querySelector('.backdrop');
 
 let burger = [...document.querySelectorAll('.burger')];
@@ -81,8 +80,46 @@ burgerControl();
 //sliders
 
 
+let subSlider = [...document.querySelectorAll('.sub-menu-slider')];
 
+function subStartSlider() {
+    if (!subSlider.length) {
 
+    } else {
+        subSlider.forEach((sld) => {
+            let sldCont = sld.querySelector('.sub-slider');
+            let sldNext = sld.querySelector('.slider-btn--next');
+            let sldPrev = sld.querySelector('.slider-btn--prev');
+
+            const swiper2 = new Swiper(sldCont, {
+                // Optional parameters
+                loop: false,
+                slidesPerView: 2,
+                slidesPerGroup: 1,
+                speed: 600,
+                navigation: {
+                    nextEl: sldNext,
+                    prevEl: sldPrev,
+                },
+                autoplay: {
+                    // delay: 6500,
+                    disableOnInteraction: true,
+                },
+                spaceBetween: 6,
+                breakpoints: {
+
+                    767: {
+                        slidesPerView: 5,
+                        spaceBetween: 19,
+                    }
+                }
+
+            });
+        })
+    }
+}
+
+subStartSlider();
 
 
 let lineSlider = [...document.querySelectorAll('.slider-members')];
@@ -164,8 +201,6 @@ function wheelStartSlider() {
 wheelStartSlider();
 
 
-
-
 //sliders
 
 //search focus
@@ -214,6 +249,28 @@ function searchFocusing() {
 }
 
 searchFocusing();
+
+
+//open sub menu mob
+
+let subMenu = [...document.querySelectorAll('.menu-item-has-children > a')];
+
+function openSubMenu() {
+    if (subMenu.length) {
+        subMenu.forEach((btn) => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                btn.closest('.menu-item-has-children').classList.toggle('show');
+            })
+        })
+    }
+}
+
+openSubMenu();
+
+
+//open sub menu mob
 
 
 
