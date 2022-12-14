@@ -1,3 +1,35 @@
+//preloader
+
+let preloadBlock = document.querySelector('.home-preloader');
+let preloadBtn = document.querySelector('.home-preloader .btn');
+let preloadVideo = document.querySelector('.home-preloader video');
+let mainVideo = document.querySelector('.main-video video');
+let bodyMain = document.querySelector('body main');
+
+function preloadControl() {
+    if (preloadBlock) {
+        mainVideo.preload;
+        mainVideo.pause();
+        preloadBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            preloadVideo.play();
+            preloadBtn.classList.add('hide');
+        });
+
+        preloadVideo.addEventListener('ended', () => {
+            preloadBlock.classList.add('hide');
+            document.body.classList.remove('no-scroll');
+            mainVideo.play();
+            bodyMain.classList.add('animate');
+        }, false);
+    }
+}
+
+preloadControl();
+
+//preloader
+
 function helloConsole() {
     var staticText = 'Made with ❤️ by Demiweb';
     var staticUrl = '> https://demiweb.pro/';
