@@ -5,6 +5,77 @@ let preloadBtn = document.querySelector('.home-preloader .btn');
 let preloadVideo = document.querySelector('.home-preloader video');
 let mainVideo = document.querySelector('.main-video video');
 let bodyMain = document.querySelector('body main');
+let systemM = [...document.querySelectorAll('.system-message')];
+
+
+var clockText = document.querySelector('.countdown');
+
+function clockCount() {
+    if (clockText) {
+        let min = clockText.querySelector('.min');
+        let sec = clockText.querySelector('.sec');
+        let minutes = clockText.dataset.minutes;
+        let seconds = clockText.dataset.seconds;
+        let minus = 2;
+        let secos = 13;
+
+        setInterval(() => {
+
+            if (minus < 10) {
+                minus = `${minus}`
+            }
+            if (secos < 10) {
+                sec.innerHTML = `0${secos}`;
+                if (secos < 0) {
+                    secos = 59;
+                    minus -= 1;
+                    sec.innerHTML = `${secos}`;
+                    if (minus < 0) {
+                        secos = seconds;
+                        minus = minutes;
+                        sec.innerHTML = `${secos}`;
+                    }
+                }
+            } else {
+                sec.innerHTML = `${secos}`;
+                if (secos < 0) {
+                    secos = 59;
+                    minus -= 1;
+                    sec.innerHTML = `${secos}`;
+                }
+            }
+            min.innerHTML = `${minus}`;
+
+            secos -= 1;
+
+
+        }, 1000)
+    }
+}
+
+function countMessage() {
+        let countingNumber = 110;
+
+        setInterval(() => {
+
+            var currentdate = new Date();
+            var datetime = currentdate.getHours() + ":" + currentdate.getMinutes() + ":" + currentdate.getSeconds();
+
+
+            countingNumber -= 1;
+            if (countingNumber === 92) {
+                systemM[0].classList.add('show');
+                systemM[0].querySelector('.head span').innerHTML = datetime;
+            }
+            if (countingNumber === 0) {
+                countingNumber = -1;
+                systemM[1].classList.add('show');
+                systemM[1].querySelector('.head span').innerHTML = datetime;
+            }
+        }, 1000)
+}
+
+
 
 function preloadControl() {
     if (preloadBlock) {
@@ -22,12 +93,31 @@ function preloadControl() {
             document.body.classList.remove('no-scroll');
             mainVideo.play();
             bodyMain.classList.add('animate');
+            clockCount();
+            countMessage();
         }, false);
+    } else {
+        clockCount();
+        countMessage();
     }
 }
 
 preloadControl();
 
+
+
+
+function openSystemMessage() {
+    if (systemM.length) {
+        systemM.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('open');
+            })
+        })
+    }
+}
+
+openSystemMessage();
 //preloader
 
 function helloConsole() {
@@ -148,10 +238,7 @@ function subStartSlider() {
                     nextEl: sldNext,
                     prevEl: sldPrev,
                 },
-                autoplay: {
-                    // delay: 6500,
-                    disableOnInteraction: true,
-                },
+                autoplay: false,
                 spaceBetween: 6,
                 breakpoints: {
 
