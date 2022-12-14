@@ -59,6 +59,7 @@ allLozadImg();
 // var backdrop = document.querySelector('.backdrop');
 
 let burger = [...document.querySelectorAll('.burger')];
+let centerMenu = [...document.querySelectorAll('.header-center')][0];
 
 function burgerControl() {
     if (burger.length) {
@@ -66,7 +67,7 @@ function burgerControl() {
 
             btn.addEventListener('click', () => {
                 btn.classList.toggle('active');
-                header.classList.toggle('active');
+                centerMenu.classList.toggle('out');
                 // backdrop.classList.toggle('active');
                 document.body.classList.toggle('no-scroll')
 
@@ -77,6 +78,20 @@ function burgerControl() {
 
 burgerControl();
 
+
+let headLinks = [...document.querySelectorAll('.control-side__head')];
+
+function openHeadLinks() {
+    if (headLinks.length) {
+        headLinks.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                btn.classList.toggle('open');
+            })
+        })
+    }
+}
+
+openHeadLinks();
 //sliders
 
 
