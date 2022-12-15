@@ -99,6 +99,13 @@ function preloadControl() {
             clockText.classList.add('done');
             bodyMain.classList.add('animate');
         }, false);
+        if (window.innerWidth < 768) {
+            document.body.classList.remove('no-scroll');
+            document.body.classList.add('animate');
+            mainVideo.play();
+            clockCount();
+            countMessage();
+        }
     } else {
         clockCount();
         countMessage();
