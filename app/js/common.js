@@ -86,6 +86,7 @@ function preloadControl() {
             e.stopPropagation();
             preloadVideo.play();
             preloadBtn.classList.add('hide');
+            clockText.classList.add('default');
         });
 
         preloadVideo.addEventListener('ended', () => {
@@ -95,6 +96,7 @@ function preloadControl() {
             bodyMain.classList.add('animate');
             clockCount();
             countMessage();
+            clockText.classList.add('done');
         }, false);
     } else {
         clockCount();
