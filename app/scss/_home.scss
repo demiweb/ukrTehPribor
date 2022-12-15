@@ -2517,6 +2517,19 @@ main {
 
 
 @media screen and (min-width: 768px) {
+  .header {
+    transform: translate(0, -120%);
+    transition: transform 0.5s ease-in-out;
+    transition-delay: 0.6s;
+  }
+  body {
+    &.animate {
+      .header {
+        transform: translate(0, 0);
+      }
+    }
+  }
+
   .home {
     .countdown {
       z-index: 101;

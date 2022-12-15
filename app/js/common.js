@@ -4,7 +4,7 @@ let preloadBlock = document.querySelector('.home-preloader');
 let preloadBtn = document.querySelector('.home-preloader .btn');
 let preloadVideo = document.querySelector('.home-preloader video');
 let mainVideo = document.querySelector('.main-video video');
-let bodyMain = document.querySelector('body main');
+let bodyMain = document.querySelector('body');
 let systemM = [...document.querySelectorAll('.system-message')];
 
 
@@ -93,14 +93,16 @@ function preloadControl() {
             preloadBlock.classList.add('hide');
             document.body.classList.remove('no-scroll');
             mainVideo.play();
-            bodyMain.classList.add('animate');
+
             clockCount();
             countMessage();
             clockText.classList.add('done');
+            bodyMain.classList.add('animate');
         }, false);
     } else {
         clockCount();
         countMessage();
+        bodyMain.classList.add('animate');
     }
 }
 
