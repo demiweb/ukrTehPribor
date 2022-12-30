@@ -331,7 +331,7 @@ function wheelStartSlider() {
                     prevEl: sldPrev,
                 },
                 autoplay: {
-                    delay: 3000,
+                    delay: 3700,
                     speed: 400,
                     reverseDirection: false,
                     // disableOnInteraction: true,
