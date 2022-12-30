@@ -325,18 +325,32 @@ function wheelStartSlider() {
                 loop: false,
                 slidesPerView: 3,
                 slidesPerGroup: 3,
-                speed: 600,
+                speed: 400,
                 navigation: {
                     nextEl: sldNext,
                     prevEl: sldPrev,
                 },
                 autoplay: {
                     delay: 3000,
+                    speed: 400,
                     reverseDirection: false,
                     // disableOnInteraction: true,
                 },
                 spaceBetween: 9,
+                on: {
+                    slideChange: () => {//Здесь мы переключаем старый слайд на новый и нужно обновить прогресс-бар. Без таймаута стиль не обновляется.
 
+                        setTimeout(() => {
+                            let el = window.getComputedStyle(sld.querySelector('.swiper-wrapper'));
+                            let matrix = new WebKitCSSMatrix(el.transform);
+                            console.log('translateX: ', matrix.m41);
+                            // sld.querySelector('.swiper-wrapper').style.marginLeft= `calc(${matrix.m41}px * (-1))`;
+                            sld.querySelector('.swiper-wrapper').style.transform = `translateX(0)`;
+
+                        }, 10)
+
+                    },
+                }
 
             });
         })
