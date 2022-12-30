@@ -390,13 +390,14 @@ detStartSlider();
 
 //open product details
 
-let detProdButton = [...document.querySelectorAll('.detailed-prod')];
+let detProdButton = [...document.querySelectorAll('.list-products .single-product')];
 let singleDetailProd = [...document.querySelectorAll('.single-product-detail')];
 
 function openDetailsModal() {
     if (detProdButton.length) {
         detProdButton.forEach((btn) => {
-            let dat = btn.dataset.product;
+            let btnP = btn.querySelector('.detailed-prod');
+            let dat = btnP.dataset.product;
 
 
             btn.addEventListener('click', (e) => {
