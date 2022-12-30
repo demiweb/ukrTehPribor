@@ -332,7 +332,7 @@ function wheelStartSlider() {
                 },
                 autoplay: {
                     delay: 3000,
-                    reverseDirection: true,
+                    reverseDirection: false,
                     // disableOnInteraction: true,
                 },
                 spaceBetween: 9,

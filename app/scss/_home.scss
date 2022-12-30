@@ -2862,6 +2862,7 @@ body {
   opacity: 0;
   transition: opacity 0.4s ease;
   transition-delay: 0.3s;
+  pointer-events: none;
 
   .close {
     cursor: pointer;
@@ -2892,6 +2893,7 @@ body {
   &.vis {
 
     opacity: 1;
+    pointer-events: auto;
     transition-delay: 0.4s;
 
   }
@@ -2964,7 +2966,7 @@ body {
   padding-left: 5.2083vw;
   padding-right: 5.2083vw;
 
-
+  font-size: 0.6771vw;
   table {
     width: 100%;
     border-collapse: collapse;
@@ -2975,7 +2977,8 @@ body {
   }
   table {
     tr td:first-child {
-      color: #8B8B8B;
+      color: $dark;
+      font-weight: 600;
     }
 
     tr {
@@ -2983,11 +2986,13 @@ body {
     }
 
     td, th {
-      border: 1px solid $dark;
-
+      border: 1px solid #ACACAC;
+      font-weight: 400;
+      font-size: 0.6771vw;
+      line-height: 130%;
       padding: 0.7813vw 0.2604vw 0.4167vw;
       vertical-align: text-top;
-      color: #000;
+      color: $dark;
     }
   }
 
@@ -3033,11 +3038,11 @@ body {
     font-weight: 400;
     font-size: 0.6771vw;
     line-height: 130%;
-    color: #ACACAC;
+    color: $dark;
 
     strong {
-      color: #5EEBF0;
-      font-weight: 500;
+      color: $dark;
+      font-weight: 600;
     }
   }
 
@@ -3060,7 +3065,7 @@ body {
     li {
       counter-increment: my-awesome-counter2;
 
-      color: #ACACAC;
+      color: $dark;
 
       &:last-child {
         margin-bottom: 2px;
@@ -3074,7 +3079,32 @@ body {
 }
 @media screen and (max-width: 767px) {
 
+  .product-detail__cont {
+    padding: 5vh 3vw;
+  }
+  .product-detailing {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .product-det__slider {
+    width: 100%;
+    height: 69.4444vw;
+    flex-shrink: 0;
+  }
+  .product-det__slider .slider-btn {
+    width: 5.4vw;
+    height: 5.4vw;
+  }
+  .single-product-detail .close {
+    width: 7vw;
+    height: 7vw;
+    top: 7vw;
+    right: 7vw;
+    z-index: 10;
+  }
   .product-det__text {
+    font-size: 3.3333vw;
     img {
       width: 100%;
       height: auto;
@@ -3107,6 +3137,14 @@ body {
           left: 1.3889vw;
           top: 2.3889vw;
         }
+      }
+    }
+    table {
+      tr, td, th {
+        font-size: 3.3333vw;
+      }
+      td, th {
+        padding: 2.7813vw 2.2604vw 2.4167vw;
       }
     }
   }
