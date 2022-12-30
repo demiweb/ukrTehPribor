@@ -369,11 +369,12 @@ function detStartSlider() {
                     nextEl: sldNext,
                     prevEl: sldPrev,
                 },
-                autoplay: {
-                    delay: 3000,
-                    reverseDirection: true,
-                    // disableOnInteraction: true,
-                },
+                autoplay: false,
+                // autoplay: {
+                //     delay: 3000,
+                //     reverseDirection: true,
+                //     // disableOnInteraction: true,
+                // },
                 spaceBetween: 9,
 
 
