@@ -330,11 +330,11 @@ function wheelStartSlider() {
                     nextEl: sldNext,
                     prevEl: sldPrev,
                 },
-                autoplay: false,
-                // autoplay: {
-                //     // delay: 6500,
-                //     disableOnInteraction: true,
-                // },
+                autoplay: {
+                    delay: 3000,
+                    reverseDirection: true,
+                    // disableOnInteraction: true,
+                },
                 spaceBetween: 9,
 
 
@@ -346,7 +346,88 @@ function wheelStartSlider() {
 wheelStartSlider();
 
 
+
+let detSlider = [...document.querySelectorAll('.product-det__slider')];
+
+function detStartSlider() {
+    if (!detSlider.length) {
+
+    } else {
+        detSlider.forEach((sld) => {
+            let sldCont = sld.querySelector('.product-det__slider--cont');
+            let sldNext = sld.querySelector('.slider-btn--next');
+            let sldPrev = sld.querySelector('.slider-btn--prev');
+
+            const swiper2 = new Swiper(sldCont, {
+                // Optional parameters
+                // effect: "flip",
+                loop: false,
+                slidesPerView: 1,
+                slidesPerGroup: 1,
+                speed: 600,
+                navigation: {
+                    nextEl: sldNext,
+                    prevEl: sldPrev,
+                },
+                autoplay: {
+                    delay: 3000,
+                    reverseDirection: true,
+                    // disableOnInteraction: true,
+                },
+                spaceBetween: 9,
+
+
+            });
+        })
+    }
+}
+
+detStartSlider();
+
 //sliders
+
+
+//open product details
+
+let detProdButton = [...document.querySelectorAll('.detailed-prod')];
+let singleDetailProd = [...document.querySelectorAll('.single-product-detail')];
+
+function openDetailsModal() {
+    if (detProdButton.length) {
+        detProdButton.forEach((btn) => {
+            let dat = btn.dataset.product;
+
+
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                singleDetailProd.forEach((prod) => {
+                    if (prod.dataset.prod === dat) {
+                        prod.closest('.product-details').classList.add('vis');
+                        prod.classList.add('vis');
+                        document.body.classList.add('no-scroll');
+                    }
+                })
+
+            });
+
+        });
+
+        singleDetailProd.forEach((prod) => {
+            let close = prod.querySelector('.close');
+            close.addEventListener('click', () => {
+                prod.classList.remove('vis');
+                prod.closest('.product-details').classList.remove('vis');
+                document.body.classList.remove('no-scroll');
+
+            })
+        })
+    }
+}
+openDetailsModal();
+
+//open product details
 
 //search focus
 
