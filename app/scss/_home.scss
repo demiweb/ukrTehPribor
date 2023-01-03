@@ -3119,6 +3119,9 @@ body {
   }
 }
 @media screen and (max-width: 767px) {
+  .audio-message {
+    z-index: 10000;
+  }
   .pagination {
     margin-top: 4.1667vw;
     ul {
