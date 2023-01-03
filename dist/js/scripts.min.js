@@ -67,6 +67,7 @@ function countMessage() {
             if (countingNumber === 92) {
                 systemM[0].classList.add('show');
                 audioMes.play();
+                console.log('why not play');
 
                 systemM[0].querySelector('.head span').innerHTML = datetime;
             }
