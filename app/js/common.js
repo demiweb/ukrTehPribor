@@ -5,6 +5,7 @@ let preloadBtn = document.querySelector('.home-preloader .btn');
 let preloadVideo = document.querySelector('.home-preloader video');
 let mainVideo = document.querySelector('.main-video video');
 let bodyMain = document.querySelector('body');
+let audioMes = document.querySelector('.audio-message');
 let systemM = [...document.querySelectorAll('.system-message')];
 
 
@@ -65,11 +66,14 @@ function countMessage() {
             countingNumber -= 1;
             if (countingNumber === 92) {
                 systemM[0].classList.add('show');
+                audioMes.play();
+
                 systemM[0].querySelector('.head span').innerHTML = datetime;
             }
             if (countingNumber === 0) {
                 countingNumber = -1;
                 systemM[1].classList.add('show');
+                audioMes.play();
                 systemM[1].querySelector('.head span').innerHTML = datetime;
             }
         }, 1000)
@@ -336,6 +340,7 @@ function wheelStartSlider() {
                     reverseDirection: false,
                     // disableOnInteraction: true,
                 },
+
                 spaceBetween: 9,
                 on: {
                     slideChange: () => {//Здесь мы переключаем старый слайд на новый и нужно обновить прогресс-бар. Без таймаута стиль не обновляется.
