@@ -441,15 +441,24 @@
         </div>
     </div>
 </header>
-
+<div class="music-state no">
+    <img src="./img/volume.svg" alt="">
+</div>
 <div class="countdown" data-minutes="2" data-seconds="13">
     <p class="min">2</p><span>:</span>
     <p class="sec">14</p>
 </div>
-<audio class="audio-message" type="audio/mpeg" controls muted="true" autoplay>
+
+<audio class="audio-message" type="audio/mpeg" style="display:none;" controls muted="muted" autoplay>
     <source src="./img/sound.mp3"  type="audio/mpeg" />
 </audio>
+
+<audio class="audio-fon"  controls muted="muted" autoplay  >
+    <source src="./img/audio.mp3"  type="audio/mpeg"/>
+</audio>
 <div class="mes-btn" style="display: none"></div>
+
+<div class="audi-btn" style="display: none"></div>
 
 <div class="alerts">
     <div class="system-message first">

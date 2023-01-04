@@ -6,7 +6,10 @@ let preloadVideo = document.querySelector('.home-preloader video');
 let mainVideo = document.querySelector('.main-video video');
 let bodyMain = document.querySelector('body');
 let audioMes = document.querySelector('.audio-message');
+let audioFon = document.querySelector('.audio-fon');
 let audioMesBtn = document.querySelector('.mes-btn');
+let audiBtn = document.querySelector('.audi-btn');
+let musicState = document.querySelector('.music-state');
 let systemM = [...document.querySelectorAll('.system-message')];
 
 
@@ -92,6 +95,41 @@ function countMessage() {
 
 
 function preloadControl() {
+
+    // document.body.scrollTo(10, 0);
+    audiBtn.addEventListener('click',() => {
+        setTimeout(() => {
+
+            window.scrollTo(0, 200);
+            window.scrollTo(0, 0);
+                // audioFon.play();
+            // audioFon.muted = false;
+            // audioFon.volume = 0.4;
+        }, 200);
+
+    });
+
+    musicState.addEventListener('click', () => {
+        if (musicState.classList.contains('no')) {
+            musicState.classList.remove('no');
+
+
+
+            audioFon.play();
+
+                audioFon.muted = false;
+                audioFon.volume = 0.4;
+
+
+        } else {
+            musicState.classList.add('no');
+            audioFon.pause();
+
+        }
+    });
+
+
+
     if (preloadBlock) {
         mainVideo.preload;
         mainVideo.pause();
@@ -99,6 +137,7 @@ function preloadControl() {
             e.preventDefault();
             e.stopPropagation();
             preloadVideo.play();
+            musicState.click();
             preloadBtn.classList.add('hide');
             clockText.classList.add('default');
         });
@@ -119,10 +158,13 @@ function preloadControl() {
             mainVideo.play();
             clockCount();
             countMessage();
+
         }
     } else {
         clockCount();
         countMessage();
+
+
         bodyMain.classList.add('animate');
     }
 }
