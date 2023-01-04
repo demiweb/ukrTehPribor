@@ -6,13 +6,21 @@ let preloadVideo = document.querySelector('.home-preloader video');
 let mainVideo = document.querySelector('.main-video video');
 let bodyMain = document.querySelector('body');
 let audioMes = document.querySelector('.audio-message');
+let audioMesBtn = document.querySelector('.mes-btn');
 let systemM = [...document.querySelectorAll('.system-message')];
 
 
 var clockText = document.querySelector('.countdown');
 
+
+
 function clockCount() {
     if (clockText) {
+
+        audioMesBtn.addEventListener('click',() => {
+            audioMes.play();
+        });
+
         let min = clockText.querySelector('.min');
         let sec = clockText.querySelector('.sec');
         let minutes = clockText.dataset.minutes;
@@ -67,7 +75,7 @@ function countMessage() {
             if (countingNumber === 92) {
                 systemM[0].classList.add('show');
                 audioMes.muted = false;
-                audioMes.play();
+                audioMesBtn.click();
                 // console.log('why not play');
 
                 systemM[0].querySelector('.head span').innerHTML = datetime;
@@ -75,7 +83,7 @@ function countMessage() {
             if (countingNumber === 0) {
                 countingNumber = -1;
                 systemM[1].classList.add('show');
-                audioMes.play();
+                audioMesBtn.click();
                 systemM[1].querySelector('.head span').innerHTML = datetime;
             }
         }, 1000)
