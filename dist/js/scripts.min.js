@@ -244,6 +244,21 @@ function allLozadImg() {
 
 allLozadImg();
 
+let menuClosing = [...document.querySelectorAll('.menu ul li:not(.menu-item-has-children) > a')];
+
+function closeMenuOnClick() {
+    if (menuClosing.length) {
+        menuClosing.forEach((btn) => {
+            btn.addEventListener('click', () => {
+                document.querySelector('.header-center').classList.remove('out');
+                document.querySelector('.burger').classList.remove('active');
+                document.body.classList.remove('no-scroll');
+            });
+
+        })
+    }
+}
+closeMenuOnClick();
 
 // var backdrop = document.querySelector('.backdrop');
 
@@ -327,8 +342,9 @@ let lineSlider = [...document.querySelectorAll('.slider-members')];
 
 function lineStartSlider() {
     if (!lineSlider.length) {
-
+        // console.log('brb');
     } else {
+        // console.log('rbr');
         lineSlider.forEach((sld) => {
             let sldCont = sld.querySelector('.members-slider');
             let sldNext = sld.querySelector('.slider-btn--next');
@@ -480,6 +496,8 @@ function openDetailsModal() {
                         prod.closest('.product-details').classList.add('vis');
                         prod.classList.add('vis');
                         document.body.classList.add('no-scroll');
+                        document.body.classList.add('maini');
+                        document.querySelector('.header').style.transform = 'translate(0, -120%)';
                     }
                 })
 
@@ -493,6 +511,8 @@ function openDetailsModal() {
                 prod.classList.remove('vis');
                 prod.closest('.product-details').classList.remove('vis');
                 document.body.classList.remove('no-scroll');
+                document.body.classList.remove('maini');
+                document.querySelector('.header').style.transform = 'translate(0, 0)';
 
             })
         })
